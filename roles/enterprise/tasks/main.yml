@@ -1,0 +1,13 @@
+
+- name: Install Apache Enterprise Service in CentOS
+  dnf:
+    name: httpd
+    state: present
+  when: ansible_distribution == "CentOS"
+
+- name: Start the http in CentOS
+  service:
+    name: httpd
+    state: restarted
+    enabled: true
+  when: ansible_distribution == "CentOS"
